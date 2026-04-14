@@ -2,14 +2,24 @@ import { createContext, useContext, useState } from "react";
 
 //Initialize context
 
-const TodoContext = createContext();
+const TodoContext = createContext({});
 
 //providerFunction
 export const TodoProvider = ({ children }) => {
   //code for todolist here:
   const [todos, setTodos] = useState(["hei"]);
 
-  //additem
+  //------------------------------------------------
+  const addItem = (text) => {
+    const newTodo = {
+      id: crypto.randomUUID(),
+      createdAt: Date.now(),
+      title: text,
+      done: false,
+    };
+    setTodos((prevTodo) => [...prevTodo, newTodo]);
+  };
+
   //edititem
   //removeitem
 
