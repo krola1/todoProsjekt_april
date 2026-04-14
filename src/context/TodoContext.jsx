@@ -7,7 +7,7 @@ const TodoContext = createContext();
 //providerFunction
 export const TodoProvider = ({ children }) => {
   //code for todolist here:
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState(["hei"]);
 
   //additem
   //edititem
