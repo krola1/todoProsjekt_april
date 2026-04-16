@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { useTodo } from "../context/TodoContext";
 
-export default function TodoItem({ createdAt, id, title }) {
+export default function TodoItem({ createdAt, id, title, done }) {
   const [isEditing, setIsEditing] = useState(false);
   const [text, setText] = useState(title);
-  const { removeItem, editItem } = useTodo();
+  const { removeItem, editItem, toggleCompleted } = useTodo();
   const date = new Date(createdAt).toLocaleString();
 
   const handleEdit = () => {
@@ -32,7 +32,13 @@ export default function TodoItem({ createdAt, id, title }) {
         <h3>{title}</h3>
       )}
 
-      <input type="checkbox" name="" id="checkbox" />
+      <input
+        type="checkbox"
+        id="checkbox"
+        checked={done}
+        onChange={() => toggleCompleted(id)}
+      />
+
       <label htmlFor="checkbox">completed</label>
       <button onClick={handleEdit}>{isEditing ? "Save" : "Edit"}</button>
       <button onClick={() => removeItem(id)}>Delete</button>

@@ -34,6 +34,13 @@ export const TodoProvider = ({ children }) => {
   };
 
   //toggle completed
+  const toggleCompleted = (id) => {
+    setTodos((prev) =>
+      prev.map((item) =>
+        item.id === id ? { ...item, done: !item.done } : { item },
+      ),
+    );
+  };
 
   const providerObj = {
     //insert values here
@@ -41,6 +48,7 @@ export const TodoProvider = ({ children }) => {
     addItem,
     removeItem,
     editItem,
+    toggleCompleted,
   };
   return (
     <TodoContext.Provider value={providerObj}>{children}</TodoContext.Provider>
