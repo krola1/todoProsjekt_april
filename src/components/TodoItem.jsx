@@ -4,12 +4,13 @@ import { useTodo } from "../context/TodoContext";
 export default function TodoItem({ createdAt, id, title }) {
   const [isEditing, setIsEditing] = useState(false);
   const [text, setText] = useState(title);
-  const { removeItem } = useTodo();
+  const { removeItem, editItem } = useTodo();
   const date = new Date(createdAt).toLocaleString();
 
   const handleEdit = () => {
     if (isEditing) {
       //edit function
+      editItem(id, text);
       setIsEditing(!isEditing);
     } else {
       setIsEditing(!isEditing);
