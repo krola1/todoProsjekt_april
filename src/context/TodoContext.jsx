@@ -1,4 +1,5 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext } from "react";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
 //Initialize context
 
@@ -7,7 +8,7 @@ const TodoContext = createContext({});
 //providerFunction
 export const TodoProvider = ({ children }) => {
   //code for todolist here:
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useLocalStorage("todotest9000");
 
   //------------------------------------------------
   const addItem = (text) => {
