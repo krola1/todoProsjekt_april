@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useTodo } from "../context/TodoContext";
 export default function TodoForm() {
   const { addItem } = useTodo();
+
   const [text, setText] = useState("");
 
   //handler function that uses additem to create a todo object based on text state.

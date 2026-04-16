@@ -5,8 +5,8 @@ export default function TodoList() {
   const { todos } = useTodo();
   return (
     <>
-      {todos?.map((item, index) => (
-        <TodoItem key={index} />
+      {todos?.map((item) => (
+        <TodoItem key={item.id} {...item} />
       ))}
     </>
   );
