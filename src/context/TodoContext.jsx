@@ -26,6 +26,7 @@ export const TodoProvider = ({ children }) => {
   const providerObj = {
     //insert values here
     todos,
+    addItem,
   };
   return (
     <TodoContext.Provider value={providerObj}>{children}</TodoContext.Provider>
