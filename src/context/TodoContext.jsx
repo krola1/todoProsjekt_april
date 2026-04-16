@@ -27,9 +27,7 @@ export const TodoProvider = ({ children }) => {
   //edititem
   const editItem = (id, text) => {
     setTodos((prev) =>
-      prev.map((item) =>
-        item.id === id ? { ...item, title: text } : { item },
-      ),
+      prev.map((item) => (item.id === id ? { ...item, title: text } : item)),
     );
   };
 
@@ -37,7 +35,7 @@ export const TodoProvider = ({ children }) => {
   const toggleCompleted = (id) => {
     setTodos((prev) =>
       prev.map((item) =>
-        item.id === id ? { ...item, done: !item.done } : { item },
+        item.id === id ? { ...item, done: !item.done } : item,
       ),
     );
   };
