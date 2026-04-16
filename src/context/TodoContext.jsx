@@ -19,14 +19,19 @@ export const TodoProvider = ({ children }) => {
     };
     setTodos((prevTodo) => [...prevTodo, newTodo]);
   };
+  //removeitem
+  const removeItem = (id) => {
+    setTodos((prev) => prev.filter((item) => item.id !== id));
+  };
 
   //edititem
-  //removeitem
+  //toggle completed
 
   const providerObj = {
     //insert values here
     todos,
     addItem,
+    removeItem,
   };
   return (
     <TodoContext.Provider value={providerObj}>{children}</TodoContext.Provider>
